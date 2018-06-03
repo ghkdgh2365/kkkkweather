@@ -1,0 +1,2 @@
+class Mise < ApplicationRecord
+end
