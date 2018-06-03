@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_03_112328) do
+ActiveRecord::Schema.define(version: 2018_06_03_114704) do
 
   create_table "mises", force: :cascade do |t|
     t.text "mise_info"
     t.text "ozone_info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weathers", force: :cascade do |t|
+    t.string "city"
+    t.string "region_name"
+    t.string "x_value"
+    t.string "y_value"
+    t.string "check_value"
+    t.text "w_time"
+    t.text "w_temp"
+    t.text "w_weather"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
