@@ -20,7 +20,27 @@
         <tr>
           <th scope="row">날씨</th>
           <% @weather.w_weather.each do |w| %>
-              <td><%= w %></td>
+              <td>
+                <% if w == "맑음" %>
+                  <%= image_tag("맑음.png", alt: "맑음") %>
+                <% end %>
+                <% if w == "구름 조금" %>
+                  <%= image_tag("구름 조금.png", alt: "구름 조금") %>
+                <% end %>
+                <% if w == "구름 많음" %>
+                  <%= image_tag("구름 많음.png", alt: "구름 많음") %>
+                <% end %>
+                <% if w == "비" %>
+                  <%= image_tag("비.png", alt: "비") %>
+                <% end %>
+                <% if w == "눈" %>
+                  <%= image_tag("눈1.png", alt: "눈") %>
+                <% end %>
+                <% if w == "흐림" %>
+                  <%= image_tag("흐림.png", alt: "흐림") %>
+                <% end %>
+                <br><%= w %>
+              </td>
           <% end %>
         </tr>
       </tbody>
