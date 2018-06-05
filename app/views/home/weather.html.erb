@@ -1,5 +1,5 @@
 
-<h3>날씨날씨 오늘 날씨</h3>
+<header>날씨날씨 오늘날씨</header>
 <div class="table-responsive">
     <table class="table">
       <thead>
@@ -49,5 +49,24 @@
 
 <div class="alert alert-secondary" role="alert"><%= @mise.mise_info %></div>
 <div class="alert alert-info" role="alert"><%= @mise.ozone_info %></div>
+<footer> ⓒ날씨날씨 / 자료출처-기상청, 에어코리아</footer>
 
-*자료출처-기상청, 에어코리아
+<style>
+  header{
+    padding-top: 4px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  footer{ position:fixed; 
+  left:0px; 
+  bottom:0px; 
+  height:15px; 
+  width:100%; 
+  background: #f2c8a5; 
+  color: white; 
+  text-align: center;
+  font-size: 8px;
+  }
+</style>
