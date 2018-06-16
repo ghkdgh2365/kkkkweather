@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get 'home/weather'
   get 'home/arriveData'
   get '/keyboard' => 'basic#keyboard_init'
-  post '/message' => 'basic#chat_control'
   post '/message' => 'basic#chat_control2'
+  post '/message' => 'basic#chat_control'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
