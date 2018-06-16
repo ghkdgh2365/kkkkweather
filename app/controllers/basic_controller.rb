@@ -49,7 +49,7 @@ class BasicController < ApplicationController
         if @response == "오늘 날씨 보기"
             @msg = {
               message: {
-              text: "안녕하세요-! 날씨날씨입니당 :)오늘 최저 기온은 #{Weather.last.w_temp.sort.first},           최고 기온은 #{Weather.last.w_temp.sort.last}입니당       #{@rain_news} #{Mise.last.mise_info}, #{Mise.last.ozone_info}" ,
+              text: "안녕하세요-! 날씨날씨입니당 :)오늘 최저 기온은 #{Weather.last.w_temp.sort.first},           최고 기온은 #{Weather.last.w_temp.sort.last}입니당       #{@rain_news} #{Mise.last.mise_info}\n#{Mise.last.ozone_info}" ,
                   message_button: {
                     label: "자세한 날씨 보기",
                     url: "https://koreaweather.herokuapp.com"
