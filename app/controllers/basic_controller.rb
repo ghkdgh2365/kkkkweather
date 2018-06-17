@@ -40,7 +40,7 @@ class BasicController < ApplicationController
         @rain_news = ""
         # user 있으면 user 정보 받아오고 비 소식도 같이 받아옴
         if User.where(user_key: @user_key).exists?
-          @user = User.find_by(user_key: @user_key)
+          @user = User.where(user_key: @user_key).last
           Weather.where(check_value: @user.etc).last.w_weather.each do |x|
               if x == "비"
                   @rain_news = "(비)비 소식이 있어요 :)"
