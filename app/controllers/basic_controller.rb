@@ -55,7 +55,7 @@ class BasicController < ApplicationController
                   text: "안녕하세요-! 날씨날씨입니당 :) 오늘 최저 기온은 #{Weather.where(check_value: @user.etc).last.w_temp.sort.first},           최고 기온은 #{Weather.where(check_value: @user.etc).last.w_temp.sort.last}입니당       #{@rain_news}" ,
                   message_button: {
                     label: "자세한 날씨 보기",
-                    url: "https://kkkkweather-ghkdgh2365.c9users.io/home/todayWeather/#{@user.etc}"
+                    url: "https://koreaweather.herokuapp.com/home/todayWeather/#{@user.etc}"
                   }
               },
               keyboard: {
@@ -232,7 +232,7 @@ class BasicController < ApplicationController
                   text: "안녕하세요-! 날씨날씨입니당 :)오늘 최저 기온은 #{Weather.where(check_value: @region).last.w_temp.sort.first},           최고 기온은 #{Weather.where(check_value: @region).last.w_temp.sort.last}입니당       #{@rain_news}" ,
                   message_button: {
                     label: "자세한 날씨 보기",
-                    url: "https://kkkkweather-ghkdgh2365.c9users.io/home/todayWeather/#{@region}"
+                    url: "https://koreaweather.herokuapp.com/#{@region}"
                   }
               },
               keyboard: {
