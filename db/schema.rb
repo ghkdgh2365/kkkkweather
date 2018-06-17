@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_03_114704) do
+ActiveRecord::Schema.define(version: 2018_06_17_122517) do
 
   create_table "mises", force: :cascade do |t|
     t.text "mise_info"
     t.text "ozone_info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_key"
+    t.string "region"
+    t.integer "regist_check"
+    t.string "phone"
+    t.string "add_check"
+    t.string "etc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -71,3 +71,285 @@
       end
     
     end
+    
+    namespace :data do
+      desc "weather0 data save"
+      task :save0 => :environment do
+        require 'nokogiri'
+        require 'open-uri'
+        @temp = Array.new
+        @weather = Array.new
+        @i = 0
+        # 서울 페이지
+        for @i in 0..3
+          doc = Nokogiri::HTML(open("http://m.kma.go.kr/m/forecast/forecast_01.jsp?area=0&zone=#{@i}"))
+          # 날씨 뽑기
+          doc.css('tr > td:nth-child(2) > img').each do |x|
+          	@weather << x['alt']
+          end
+          @weather = @weather[0..15] #7 제거
+          @weather.delete_at(7)
+          # 온도 뽑기(내일까지만)
+          doc.css('tr > td:nth-child(3) > p > span').each do |x|
+          	@temp << x.inner_text 
+          end
+          @temp = @temp[1..16]#8제거
+          @temp.delete_at(8)
+          @todayweather = Weather.new
+          case @i
+          when 0
+            @todayweather.region_name = "서울"
+            @todayweather.check_value = 0
+          when 1
+            @todayweather.region_name = "수원"
+            @todayweather.check_value = 1
+          when 2
+            @todayweather.region_name = "인천"
+            @todayweather.check_value = 2
+          when 3
+            @todayweather.region_name = "파주"
+            @todayweather.check_value = 3
+          else
+          end
+          @todayweather.w_temp = @temp
+          @todayweather.w_weather = @weather
+          @todayweather.save
+        end
+      end
+    
+    end
+    
+    namespace :data do
+      desc "weather1 data save"
+      task :save1 => :environment do
+        require 'nokogiri'
+        require 'open-uri'
+        @temp = Array.new
+        @weather = Array.new
+        @i = 0
+        # 서울 페이지
+        for @i in 0..2
+          doc = Nokogiri::HTML(open("http://m.kma.go.kr/m/forecast/forecast_01.jsp?area=1&zone=#{@i}"))
+          # 날씨 뽑기
+          doc.css('tr > td:nth-child(2) > img').each do |x|
+          	@weather << x['alt']
+          end
+          @weather = @weather[0..15] #7 제거
+          @weather.delete_at(7)
+          # 온도 뽑기(내일까지만)
+          doc.css('tr > td:nth-child(3) > p > span').each do |x|
+          	@temp << x.inner_text 
+          end
+          @temp = @temp[1..16]#8제거
+          @temp.delete_at(8)
+          @todayweather = Weather.new
+          case @i
+          when 0
+            @todayweather.region_name = "강릉"
+            @todayweather.check_value = 4
+          when 1
+            @todayweather.region_name = "원주"
+            @todayweather.check_value = 5
+          when 2
+            @todayweather.region_name = "춘천"
+            @todayweather.check_value = 6
+          else
+          end
+          @todayweather.w_temp = @temp
+          @todayweather.w_weather = @weather
+          @todayweather.save
+        end
+      end
+    
+    end
+    
+    namespace :data do
+      desc "weather2 data save"
+      task :save2 => :environment do
+        require 'nokogiri'
+        require 'open-uri'
+        @temp = Array.new
+        @weather = Array.new
+        @i = 0
+        # 서울 페이지
+        for @i in 0..3
+          doc = Nokogiri::HTML(open("http://m.kma.go.kr/m/forecast/forecast_01.jsp?area=2&zone=#{@i}"))
+          # 날씨 뽑기
+          doc.css('tr > td:nth-child(2) > img').each do |x|
+          	@weather << x['alt']
+          end
+          @weather = @weather[0..15] #7 제거
+          @weather.delete_at(7)
+          # 온도 뽑기(내일까지만)
+          doc.css('tr > td:nth-child(3) > p > span').each do |x|
+          	@temp << x.inner_text 
+          end
+          @temp = @temp[1..16]#8제거
+          @temp.delete_at(8)
+          @todayweather = Weather.new
+          case @i
+          when 0
+            @todayweather.region_name = "대전"
+            @todayweather.check_value = 7
+          when 1
+            @todayweather.region_name = "홍성"
+            @todayweather.check_value = 8
+          when 2
+            @todayweather.region_name = "세종"
+            @todayweather.check_value = 9
+          when 3
+            @todayweather.region_name = "청주"
+            @todayweather.check_value = 10
+          else
+          end
+          @todayweather.w_temp = @temp
+          @todayweather.w_weather = @weather
+          @todayweather.save
+        end
+      end
+    
+    end
+
+    namespace :data do
+      desc "weather3 data save"
+      task :save3 => :environment do
+        require 'nokogiri'
+        require 'open-uri'
+        @temp = Array.new
+        @weather = Array.new
+        @i = 0
+        # 서울 페이지
+        for @i in 0..4
+          doc = Nokogiri::HTML(open("http://m.kma.go.kr/m/forecast/forecast_01.jsp?area=3&zone=#{@i}"))
+          # 날씨 뽑기
+          doc.css('tr > td:nth-child(2) > img').each do |x|
+          	@weather << x['alt']
+          end
+          @weather = @weather[0..15] #7 제거
+          @weather.delete_at(7)
+          # 온도 뽑기(내일까지만)
+          doc.css('tr > td:nth-child(3) > p > span').each do |x|
+          	@temp << x.inner_text 
+          end
+          @temp = @temp[1..16]#8제거
+          @temp.delete_at(8)
+          @todayweather = Weather.new
+          case @i
+          when 0
+            @todayweather.region_name = "군산"
+            @todayweather.check_value = 11
+          when 1
+            @todayweather.region_name = "광주"
+            @todayweather.check_value = 12
+          when 2
+            @todayweather.region_name = "목포"
+            @todayweather.check_value = 13
+          when 3
+            @todayweather.region_name = "여수"
+            @todayweather.check_value = 14
+          when 4
+            @todayweather.region_name = "전주"
+            @todayweather.check_value = 15
+          else
+          end
+          @todayweather.w_temp = @temp
+          @todayweather.w_weather = @weather
+          @todayweather.save
+        end
+      end
+    
+    end
+    
+    namespace :data do
+      desc "weather4 data save"
+      task :save4 => :environment do
+        require 'nokogiri'
+        require 'open-uri'
+        @temp = Array.new
+        @weather = Array.new
+        @i = 0
+        # 서울 페이지
+        for @i in 0..5
+          doc = Nokogiri::HTML(open("http://m.kma.go.kr/m/forecast/forecast_01.jsp?area=4&zone=#{@i}"))
+           # 날씨 뽑기
+          doc.css('tr > td:nth-child(2) > img').each do |x|
+          	@weather << x['alt']
+          end
+          @weather = @weather[0..15] #7 제거
+          @weather.delete_at(7)
+          # 온도 뽑기(내일까지만)
+          doc.css('tr > td:nth-child(3) > p > span').each do |x|
+          	@temp << x.inner_text 
+          end
+          @temp = @temp[1..16]#8제거
+          @temp.delete_at(8)
+          @todayweather = Weather.new
+          case @i
+          when 0
+            @todayweather.region_name = "대구"
+            @todayweather.check_value = 16
+          when 1
+            @todayweather.region_name = "부산"
+            @todayweather.check_value = 17
+          when 2
+            @todayweather.region_name = "안동"
+            @todayweather.check_value = 18
+          when 3
+            @todayweather.region_name = "울산"
+            @todayweather.check_value = 19
+          when 4
+            @todayweather.region_name = "창원"
+            @todayweather.check_value = 20
+          when 5
+            @todayweather.region_name = "포항"
+            @todayweather.check_value = 21
+          else
+          end
+          @todayweather.w_temp = @temp
+          @todayweather.w_weather = @weather
+          @todayweather.save
+        end
+      end
+    
+    end
+    
+    namespace :data do
+      desc "weather5 data save"
+      task :save5 => :environment do
+        require 'nokogiri'
+        require 'open-uri'
+        @temp = Array.new
+        @weather = Array.new
+        @i = 0
+        # 서울 페이지
+        for @i in 0..1
+          doc = Nokogiri::HTML(open("http://m.kma.go.kr/m/forecast/forecast_01.jsp?area=5&zone=#{@i}"))
+          # 날씨 뽑기
+          doc.css('tr > td:nth-child(2) > img').each do |x|
+          	@weather << x['alt']
+          end
+          @weather = @weather[0..15] #7 제거
+          @weather.delete_at(7)
+          # 온도 뽑기(내일까지만)
+          doc.css('tr > td:nth-child(3) > p > span').each do |x|
+          	@temp << x.inner_text 
+          end
+          @temp = @temp[1..16]#8제거
+          @temp.delete_at(8)
+          @todayweather = Weather.new
+          case @i
+          when 0
+            @todayweather.region_name = "서귀포"
+            @todayweather.check_value = 22
+          when 1
+            @todayweather.region_name = "제주"
+            @todayweather.check_value = 23
+          else
+          end
+          @todayweather.w_temp = @temp
+          @todayweather.w_weather = @weather
+          @todayweather.save
+        end
+      end
+    
+    end

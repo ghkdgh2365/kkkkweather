@@ -143,4 +143,9 @@ class HomeController < ApplicationController
     @mise = Mise.last
   end
   
+  def todayWeather
+    @check_value = params[:check_value]
+    @weather = Weather.where(check_value: @check_value).last
+    @mise = Mise.last
+  end
 end
