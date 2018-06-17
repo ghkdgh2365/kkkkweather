@@ -87,8 +87,7 @@
           doc.css('tr > td:nth-child(2) > img').each do |x|
           	@weather << x['alt']
           end
-          @weather = @weather[0..15] #7 제거
-          @weather.delete_at(7)
+          @weather = @weather[0..14] #7 제거
           # 온도 뽑기(내일까지만)
           doc.css('tr > td:nth-child(3) > p > span').each do |x|
           	@temp << x.inner_text 
@@ -134,8 +133,7 @@
           doc.css('tr > td:nth-child(2) > img').each do |x|
           	@weather << x['alt']
           end
-          @weather = @weather[0..15] #7 제거
-          @weather.delete_at(7)
+          @weather = @weather[0..14] #7 제거
           # 온도 뽑기(내일까지만)
           doc.css('tr > td:nth-child(3) > p > span').each do |x|
           	@temp << x.inner_text 
@@ -178,8 +176,7 @@
           doc.css('tr > td:nth-child(2) > img').each do |x|
           	@weather << x['alt']
           end
-          @weather = @weather[0..15] #7 제거
-          @weather.delete_at(7)
+          @weather = @weather[0..14] #7 제거
           # 온도 뽑기(내일까지만)
           doc.css('tr > td:nth-child(3) > p > span').each do |x|
           	@temp << x.inner_text 
@@ -225,8 +222,7 @@
           doc.css('tr > td:nth-child(2) > img').each do |x|
           	@weather << x['alt']
           end
-          @weather = @weather[0..15] #7 제거
-          @weather.delete_at(7)
+          @weather = @weather[0..14] #7 제거
           # 온도 뽑기(내일까지만)
           doc.css('tr > td:nth-child(3) > p > span').each do |x|
           	@temp << x.inner_text 
@@ -275,8 +271,7 @@
           doc.css('tr > td:nth-child(2) > img').each do |x|
           	@weather << x['alt']
           end
-          @weather = @weather[0..15] #7 제거
-          @weather.delete_at(7)
+          @weather = @weather[0..14] #7 제거
           # 온도 뽑기(내일까지만)
           doc.css('tr > td:nth-child(3) > p > span').each do |x|
           	@temp << x.inner_text 
@@ -328,8 +323,7 @@
           doc.css('tr > td:nth-child(2) > img').each do |x|
           	@weather << x['alt']
           end
-          @weather = @weather[0..15] #7 제거
-          @weather.delete_at(7)
+          @weather = @weather[0..14] #7 제거
           # 온도 뽑기(내일까지만)
           doc.css('tr > td:nth-child(3) > p > span').each do |x|
           	@temp << x.inner_text 
