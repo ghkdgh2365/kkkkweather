@@ -90,8 +90,8 @@ class BasicController < ApplicationController
             # , "대전", "홍성", "세종", "청주", "군산", "광주", "목포", "여수", "전주", "대구", "부산", "안동", "울산", "창원", "포항", "서귀포", "제주"
             render json: @msg, status: :ok
         end
-        if @response == "서울" or @response == "수원" or @response == "파주" or @response == "인천" or @response == "강릉" or @response == "원주" or @response == "춘천"
-            # or @response == "대전" or @response == "홍성" or @response == "세종" or @response == "청주" or @response == "군산" or @response == "광주" or @response == "목포" or @response == "여수" or @response == "전주" or @response == "대구" or @response == "부산" or @response == "안동" or @response == "울산" or @response == "창원" or @response == "포항" or @response == "서귀포" or @response == "제주"
+        if @response == "서울" or @response == "수원" or @response == "파주" or @response == "인천" or @response == "강릉" or @response == "원주" or @response == "춘천" or @response == "대전" or @response == "홍성" or @response == "세종" or @response == "청주" or @response == "군산" or @response == "광주" or @response == "목포" or @response == "여수" or @response == "전주" or @response == "대구" or @response == "부산" or @response == "안동" or @response == "울산" or @response == "창원" or @response == "포항"
+            #  or @response == "서귀포" or @response == "제주"
             @user = User.new
             @user.user_key = @user_key
             @user.region = @response
@@ -166,14 +166,14 @@ class BasicController < ApplicationController
               },
               keyboard: {
                 type: "buttons",
-                buttons: ["서울 날씨 보기", "수원 날씨 보기", "파주 날씨 보기", "인천 날씨 보기", "강릉 날씨 보기", "원주 날씨 보기", "춘천 날씨 보기"]
+                buttons: ["서울 날씨 보기", "수원 날씨 보기", "파주 날씨 보기", "인천 날씨 보기", "강릉 날씨 보기", "원주 날씨 보기", "춘천 날씨 보기", "대전 날씨 보기", "홍성 날씨 보기", "세종 날씨 보기", "청주 날씨 보기", "군산 날씨 보기", "광주 날씨 보기", "목포 날씨 보기", "여수 날씨 보기", "전주 날씨 보기", "대구 날씨 보기", "부산 날씨 보기", "안동 날씨 보기", "울산 날씨 보기", "창원 날씨 보기", "포항 날씨 보기"]
               }
             }
             render json: @msg, status: :ok
-            # , "대전 날씨 보기", "홍성 날씨 보기", "세종 날씨 보기", "청주 날씨 보기", "군산 날씨 보기", "광주 날씨 보기", "목포 날씨 보기", "여수 날씨 보기", "전주 날씨 보기", "대구 날씨 보기", "부산 날씨 보기", "안동 날씨 보기", "울산 날씨 보기", "창원 날씨 보기", "포항 날씨 보기", "서귀포 날씨 보기", "제주 날씨 보기"
+            # , , "서귀포 날씨 보기", "제주 날씨 보기"
         end
-        if @response == "서울 날씨 보기" or @response == "수원 날씨 보기" or @response == "파주 날씨 보기" or @response == "인천 날씨 보기" or @response == "강릉 날씨 보기" or @response == "원주 날씨 보기" or @response == "춘천 날씨 보기"
-          # or @response == "대전 날씨 보기" or @response == "홍성 날씨 보기" or @response == "세종 날씨 보기" or @response == "청주 날씨 보기" or @response == "군산 날씨 보기" or @response == "광주 날씨 보기" or @response == "목포 날씨 보기" or @response == "여수 날씨 보기" or @response == "전주 날씨 보기" or @response == "대구 날씨 보기" or @response == "부산 날씨 보기" or @response == "안동 날씨 보기" or @response == "울산 날씨 보기" or @response == "창원 날씨 보기" or @response == "포항 날씨 보기" or @response == "서귀포 날씨 보기" or @response == "제주 날씨 보기"
+        if @response == "서울 날씨 보기" or @response == "수원 날씨 보기" or @response == "파주 날씨 보기" or @response == "인천 날씨 보기" or @response == "강릉 날씨 보기" or @response == "원주 날씨 보기" or @response == "춘천 날씨 보기"or @response == "대전 날씨 보기" or @response == "홍성 날씨 보기" or @response == "세종 날씨 보기" or @response == "청주 날씨 보기" or @response == "군산 날씨 보기" or @response == "광주 날씨 보기" or @response == "목포 날씨 보기" or @response == "여수 날씨 보기" or @response == "전주 날씨 보기" or @response == "대구 날씨 보기" or @response == "부산 날씨 보기" or @response == "안동 날씨 보기" or @response == "울산 날씨 보기" or @response == "창원 날씨 보기" or @response == "포항 날씨 보기"
+          #  or @response == "서귀포 날씨 보기" or @response == "제주 날씨 보기"
           case @response
           when "서울 날씨 보기"
             @region = 0
