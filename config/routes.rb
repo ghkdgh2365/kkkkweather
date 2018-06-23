@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'home#weather'
+  # root 'home#todayWeather'
   get 'home/index'
   get 'home/searchStationId'
   get 'home/weather'

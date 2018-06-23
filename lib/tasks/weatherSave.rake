@@ -114,15 +114,7 @@
           @todayweather.w_weather = @weather
           @todayweather.save
         end
-      end
-    
-    end
-    
-    namespace :data do
-      desc "weather1 data save"
-      task :save1 => :environment do
-        require 'nokogiri'
-        require 'open-uri'
+        
         @temp = Array.new
         @weather = Array.new
         @i = 0
@@ -157,15 +149,7 @@
           @todayweather.w_weather = @weather
           @todayweather.save
         end
-      end
-    
-    end
-    
-    namespace :data do
-      desc "weather2 data save"
-      task :save2 => :environment do
-        require 'nokogiri'
-        require 'open-uri'
+        
         @temp = Array.new
         @weather = Array.new
         @i = 0
@@ -203,15 +187,7 @@
           @todayweather.w_weather = @weather
           @todayweather.save
         end
-      end
-    
-    end
-
-    namespace :data do
-      desc "weather3 data save"
-      task :save3 => :environment do
-        require 'nokogiri'
-        require 'open-uri'
+        
         @temp = Array.new
         @weather = Array.new
         @i = 0
@@ -252,15 +228,7 @@
           @todayweather.w_weather = @weather
           @todayweather.save
         end
-      end
-    
-    end
-    
-    namespace :data do
-      desc "weather4 data save"
-      task :save4 => :environment do
-        require 'nokogiri'
-        require 'open-uri'
+        
         @temp = Array.new
         @weather = Array.new
         @i = 0
@@ -304,15 +272,7 @@
           @todayweather.w_weather = @weather
           @todayweather.save
         end
-      end
-    
-    end
-    
-    namespace :data do
-      desc "weather5 data save"
-      task :save5 => :environment do
-        require 'nokogiri'
-        require 'open-uri'
+        
         @temp = Array.new
         @weather = Array.new
         @i = 0

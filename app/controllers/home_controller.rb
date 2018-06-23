@@ -139,8 +139,11 @@ class HomeController < ApplicationController
   end
   
   def weather
+    
+    redirect_to '/home/todayWeather/0'
     @weather = Weather.last
     @mise = Mise.last
+    
   end
   
   def todayWeather
