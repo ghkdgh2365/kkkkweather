@@ -307,6 +307,7 @@
         @temp = Array.new
         @weather = Array.new        
         doc = Nokogiri::HTML(open("http://www.kweather.co.kr/kma/kma_digital.html?area2_name=%ED%95%A8%ED%8F%89%EA%B5%B0%0D%0A%09%092305%7C%EB%82%98%EC%82%B0%EB%A9%B4%0D%0A%09%092304%7C%EB%8C%80%EB%8F%99%EB%A9%B4%0D%0A%09%092300%7C%EC%86%90%EB%B6%88%EB%A9%B4%0D%0A%09%092301%7C%EC%8B%A0%EA%B4%91%EB%A9%B4%0D%0A%09%092303%7C%EC%97%84%EB%8B%A4%EB%A9%B4%0D%0A%09%092307%7C%EC%9B%94%EC%95%BC%EB%A9%B4%0D%0A%09%092302%7C%ED%95%99%EA%B5%90%EB%A9%B4%0D%0A%09%092299%7C%ED%95%A8%ED%8F%89%EC%9D%8D%0D%0A%09%092306%7C%ED%95%B4%EB%B3%B4%EB%A9%B4%0D%0A%09&area1=area_13&area2=19&area3=2299%7C%ED%95%A8%ED%8F%89%EC%9D%8D&x=22&y=8"))
+      
       end
     
     end

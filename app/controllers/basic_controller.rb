@@ -41,7 +41,7 @@ class BasicController < ApplicationController
         # user 있으면 user 정보 받아오고 비 소식도 같이 받아옴
         if User.where(user_key: @user_key).exists?
           @user = User.where(user_key: @user_key).last
-          Weather.where(check_value: @user.etc).last.w_weather.each do |x|
+          Weather.where(check_value: @user.etc).last.w_weather[0..6].each do |x|
               if x == "비"
                   @rain_news = "(비)비 소식이 있어요 :)"
               end
@@ -52,7 +52,7 @@ class BasicController < ApplicationController
           if User.where(user_key: @user_key).exists?
             @msg = {
               message: {
-                  text: "안녕하세요-! 날씨날씨입니당 :) 오늘 #{Weather.where(check_value: @user.etc).last.region_name}  최저 기온은 #{Weather.where(check_value: @user.etc).last.w_temp.sort.first},           최고 기온은 #{Weather.where(check_value: @user.etc).last.w_temp.sort.last}입니당       #{@rain_news}" ,
+                  text: "안녕하세요-! 날씨날씨입니당 :) 오늘 #{Weather.where(check_value: @user.etc).last.region_name}  최저 기온은 #{Weather.where(check_value: @user.etc).last.w_temp[0..6].sort.first},           최고 기온은 #{Weather.where(check_value: @user.etc).last.w_temp[0..6].sort.last}입니당       #{@rain_news}" ,
                   message_button: {
                     label: "자세한 날씨 보기",
                     url: "https://koreaweather.herokuapp.com/home/todayWeather/#{@user.etc}"
@@ -91,11 +91,15 @@ class BasicController < ApplicationController
             render json: @msg, status: :ok
         end
         if @response == "서울" or @response == "수원" or @response == "파주" or @response == "인천" or @response == "강릉" or @response == "원주" or @response == "춘천" or @response == "대전" or @response == "홍성" or @response == "세종" or @response == "청주" or @response == "군산" or @response == "광주" or @response == "목포" or @response == "여수" or @response == "전주" or @response == "대구" or @response == "부산" or @response == "안동" or @response == "울산" or @response == "창원" or @response == "포항" or @response == "서귀포" or @response == "제주"
-            #  
-            
-            @user = User.new
-            @user.user_key = @user_key
-            @user.region = @response
+            # 
+            if @user_key == "" or @user_key == nil
+              @user = User.new
+              @user.user_key = @user_key
+              @user.region = @response
+            else
+              @user = User.where(user_key: @user_key).last
+              @user.region = @response
+            end
             case @response
             when "서울"
               @user.etc = 0
@@ -226,14 +230,14 @@ class BasicController < ApplicationController
             @region = 23
           else
           end
-          Weather.where(check_value: @region).last.w_weather.each do |x|
+          Weather.where(check_value: @region).last.w_weather[0..6].each do |x|
               if x == "비"
                   @rain_news = "(비)비 소식이 있어요 :)"
               end
           end
           @msg = {
               message: {
-                  text: "안녕하세요-! 날씨날씨입니당 :) 오늘 #{Weather.where(check_value: @region).last.region_name} 최저 기온은 #{Weather.where(check_value: @region).last.w_temp.sort.first},           최고 기온은 #{Weather.where(check_value: @region).last.w_temp.sort.last}입니당       #{@rain_news}" ,
+                  text: "안녕하세요-! 날씨날씨입니당 :) 오늘 #{Weather.where(check_value: @region).last.region_name} 최저 기온은 #{Weather.where(check_value: @region).last.w_temp[0..6].sort.first},           최고 기온은 #{Weather.where(check_value: @region).last.w_temp[0..6].sort.last}입니당       #{@rain_news}" ,
                   message_button: {
                     label: "자세한 날씨 보기",
                     url: "https://koreaweather.herokuapp.com/home/todayWeather/#{@region}"
@@ -246,6 +250,69 @@ class BasicController < ApplicationController
             }
             render json: @msg, status: :ok
         end
-       
+        # if @response == "알림 시간 등록" 
+        #     @msg = {
+        #       message: {
+        #           text: "알림받을 시간을 선택해주세요 :)"
+        #       },
+        #       keyboard: {
+        #         type: "buttons",
+        #         buttons: ["06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00"]
+        #       }
+        #     }
+        #     render json: @msg, status: :ok
+        # end
+        # if @response == "06:00" or @response == "06:30" or @response == "07:00" or @response == "07:30" or @response == "08:00" or @response == "08:30" or @response == "09:00" or @response == "09:30" or @response == "10:00" or @response == "10:30" or @response == "11:00" or @response == "11:30" or @response == "12:00" or @response == "목포" or @response == "여수" or @response == "전주" or @response == "대구" or @response == "부산" or @response == "안동" or @response == "울산" or @response == "창원" or @response == "포항" or @response == "서귀포" or @response == "제주"
+        #     # 
+        #     if @user_key == "" or @user_key == nil
+        #       @user = User.new
+        #       @user.user_key = @user_key
+        #       @user.region = @response
+        #     else
+        #       @user = User.where(user_key: @user_key).last
+        #       @user.region = @response
+        #     end
+        #     case @response
+        #     when "06:00"
+        #       @user.alarm_time = "06:00"
+        #     when "06:30"
+        #       @user.alarm_time = "06:30"
+        #     when "07:00"
+        #       @user.alarm_time = "07:00"
+        #     when "07:30"
+        #       @user.alarm_time = "07:30"
+        #     when "08:00"
+        #       @user.alarm_time = "08:00"
+        #     when "08:30"
+        #       @user.alarm_time = "08:30"
+        #     when "09:00"
+        #       @user.alarm_time = "09:00"
+        #     when "09:30"
+        #       @user.alarm_time = "09:30"
+        #     when "10:00"
+        #       @user.alarm_time = "10:00"
+        #     when "10:30"
+        #       @user.alarm_time = "10:30"
+        #     when "11:00"
+        #       @user.alarm_time = "11:00"
+        #     when "11:30"
+        #       @user.alarm_time = "11:30"
+        #     when "12:00"
+        #       @user.alarm_time = "12:00"
+        #     else
+        #     end
+        #     @user.save
+            
+        #     @msg = {
+        #       message: {
+        #           text: "알람 시간이 #{@response} 으로 등록되었습니다-!"
+        #       },
+        #       keyboard: {
+        #         type: "buttons",
+        #         buttons: ["오늘 날씨 보기", "지역 다시 등록", "다른 지역 날씨"]# ,"알림 시간 등록"
+        #       }
+        #     }
+        #     render json: @msg, status: :ok
+        # end
     end
 end
