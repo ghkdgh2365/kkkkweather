@@ -92,7 +92,7 @@ class BasicController < ApplicationController
         end
         if @response == "서울" or @response == "수원" or @response == "파주" or @response == "인천" or @response == "강릉" or @response == "원주" or @response == "춘천" or @response == "대전" or @response == "홍성" or @response == "세종" or @response == "청주" or @response == "군산" or @response == "광주" or @response == "목포" or @response == "여수" or @response == "전주" or @response == "대구" or @response == "부산" or @response == "안동" or @response == "울산" or @response == "창원" or @response == "포항" or @response == "서귀포" or @response == "제주"
             # 
-            if @user_key == "" or @user_key == nil
+            if User.where(user_key: @user_key).last == "" or User.where(user_key: @user_key).last == nil
               @user = User.new
               @user.user_key = @user_key
               @user.region = @response
