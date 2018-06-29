@@ -103,10 +103,10 @@
             @todayweather.region_name = "수원"
             @todayweather.check_value = 1
           when 2
-            @todayweather.region_name = "인천"
+            @todayweather.region_name = "파주"
             @todayweather.check_value = 2
           when 3
-            @todayweather.region_name = "파주"
+            @todayweather.region_name = "인천"
             @todayweather.check_value = 3
           else
           end
