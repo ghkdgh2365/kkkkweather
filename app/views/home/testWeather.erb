@@ -39,7 +39,9 @@
       </tbody>
     </table>
  </div>
+<% if @region != nil %>
 <header>날씨날씨 - <%= @region.city1 %> <%= @region.city2 %></header>
+<% end %>
 <div class="table-responsive">
     <table class="table">
       <thead>
