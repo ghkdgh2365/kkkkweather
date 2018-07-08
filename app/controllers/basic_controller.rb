@@ -933,11 +933,11 @@ class BasicController < ApplicationController
         # end
         # if @response == "서울 날씨 보기" or @response == "수원 날씨 보기" or @response == "파주 날씨 보기" or @response == "인천 날씨 보기" or @response == "강릉 날씨 보기" or @response == "원주 날씨 보기" or @response == "춘천 날씨 보기"or @response == "대전 날씨 보기" or @response == "홍성 날씨 보기" or @response == "세종 날씨 보기" or @response == "청주 날씨 보기" or @response == "군산 날씨 보기" or @response == "광주 날씨 보기" or @response == "목포 날씨 보기" or @response == "여수 날씨 보기" or @response == "전주 날씨 보기" or @response == "대구 날씨 보기" or @response == "부산 날씨 보기" or @response == "안동 날씨 보기" or @response == "울산 날씨 보기" or @response == "창원 날씨 보기" or @response == "포항 날씨 보기" or @response == "서귀포 날씨 보기" or @response == "제주 날씨 보기"
         #   #  
-          case @response
-          when "서울 날씨 보기"
-            @region = 0
-          else
-          end
+          # case @response
+          # when "서울 날씨 보기"
+          #   @region = 0
+          # else
+          # end
         #   when "수원 날씨 보기"
         #     @region = 1
         #   when "파주 날씨 보기"
