@@ -317,10 +317,8 @@ class BasicController < ApplicationController
             if User.where(user_key: @user_key).last == "" or User.where(user_key: @user_key).last == nil
               @user = User.new
               @user.user_key = @user_key
-              @user.region = @response
             else
               @user = User.where(user_key: @user_key).last
-              @user.region = @response
             end
 
             case @response
@@ -498,7 +496,6 @@ class BasicController < ApplicationController
             else
               @user = User.where(user_key: @user_key).last
             end
-            
             
             case @response
             when "경기도 수원시장안구"
