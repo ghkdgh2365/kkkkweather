@@ -41,7 +41,6 @@
  </div>
 <% if @region != nil %>
 <header>날씨날씨 - <%= @region.city1 %> <%= @region.city2 %></header>
-<% end %>
 <div class="table-responsive">
     <table class="table">
       <thead>
@@ -117,6 +116,7 @@
  </div>
 <div class="alert alert-secondary" role="alert"><%= @mise.mise_info %></div>
 <div class="alert alert-info" role="alert"><%= @mise.ozone_info %></div>
+<% end %>
 <footer> ⓒ날씨날씨 / 자료출처-기상청,  Openweather, 에어코리아</footer>
 
 <style>
