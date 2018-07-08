@@ -320,8 +320,7 @@ class BasicController < ApplicationController
             else
               @user = User.where(user_key: @user_key).last
             end
-            @user.region = @response
-            
+
             case @response
             when "서울특별시 종로구"
               @user.etc = 1
