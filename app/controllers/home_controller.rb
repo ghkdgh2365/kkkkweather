@@ -139,16 +139,21 @@ class HomeController < ApplicationController
   end
   
   def weather
-    
-    redirect_to '/home/todayWeather/0'
-    @weather = Weather.last
-    @mise = Mise.last
-    
+    redirect_to '/home/testWeather/서울특별시/1'
   end
   
   def todayWeather
-    @check_value = params[:check_value]
-    @weather = Weather.where(check_value: @check_value).last
+    @city1 = params[:city1]
+    @city = Region.where(city1: @city1)
+  end
+  
+  def testWeather
+    @region_id = params[:region_id]
+    @city1 = params[:city1]
+    @city2 = Region.where(city1: @city1)
+    @openWeather = Openweather.where(region_id: @region_id).last
     @mise = Mise.last
+    @region = Region.find_by(etc: @region_id)
+
   end
 end

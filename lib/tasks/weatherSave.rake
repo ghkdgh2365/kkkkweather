@@ -309,5 +309,60 @@
         doc = Nokogiri::HTML(open("http://www.kweather.co.kr/kma/kma_digital.html?area2_name=%ED%95%A8%ED%8F%89%EA%B5%B0%0D%0A%09%092305%7C%EB%82%98%EC%82%B0%EB%A9%B4%0D%0A%09%092304%7C%EB%8C%80%EB%8F%99%EB%A9%B4%0D%0A%09%092300%7C%EC%86%90%EB%B6%88%EB%A9%B4%0D%0A%09%092301%7C%EC%8B%A0%EA%B4%91%EB%A9%B4%0D%0A%09%092303%7C%EC%97%84%EB%8B%A4%EB%A9%B4%0D%0A%09%092307%7C%EC%9B%94%EC%95%BC%EB%A9%B4%0D%0A%09%092302%7C%ED%95%99%EA%B5%90%EB%A9%B4%0D%0A%09%092299%7C%ED%95%A8%ED%8F%89%EC%9D%8D%0D%0A%09%092306%7C%ED%95%B4%EB%B3%B4%EB%A9%B4%0D%0A%09&area1=area_13&area2=19&area3=2299%7C%ED%95%A8%ED%8F%89%EC%9D%8D&x=22&y=8"))
       
       end
+
+    end
     
+    namespace :data do
+        desc "Openweather data save"
+        task :openweather => :environment do
+          require 'net/http'
+          require 'json'
+          @region = Region.all
+          @region.each do |r|
+            @temp = []
+            @weather = []
+            @description = []
+            @icon = []
+            url = "https://api.openweathermap.org/data/2.5/forecast?lat=#{r.lat}&lon=#{r.lon}&appid=6124cc33a2dbf357eadefaf4ee0e428c"
+            uri = URI(url)
+            response = Net::HTTP.get(uri)
+            @json = JSON.parse(response)
+            @data = @json["list"]
+            
+            @a = 0
+            @data.each do |d|
+              @orgtemp = d["main"]["temp"]
+              @ktemp = @orgtemp - 273.15
+              @temp << @ktemp.to_i
+              @weather << d["weather"][0]["main"]
+              @description << d["weather"][0]["description"]
+              @icon << d["weather"][0]["icon"]
+              @a += 1
+              break if @a == 16
+            end
+            
+            @open = Openweather.new
+            @open.region_id = r.etc
+            @open.temp = @temp
+            @open.weather = @weather
+            @open.description = @description
+            @open.icon = @icon
+            @open.save
+          end
+          
+          @mises = [] #미세먼지, 오존 정보 담을 통
+          air = Nokogiri::HTML(open("https://www.airkorea.or.kr/dustForecast")) #에어코리아 크롤링
+          
+          # 미세,오존 정보 뽑기
+          air.css(".inform_overall").each do |x|
+            @mises << x.inner_text
+          end
+          
+          @mise = Mise.new
+          @mise.mise_info = @mises[0] #미세먼지 오늘꺼
+          @mise.ozone_info = @mises[2] #오존 오늘꺼
+          @mise.save
+          
+          
+        end
     end

@@ -1,0 +1,141 @@
+  <div class="table-responsive" style="height: 50px;">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th scope="col">  </th>
+          <th scope="col"><a  href="/home/testWeather/서울특별시/1">서울</a></th>
+          <th scope="col"><a  href="/home/testWeather/경기도">경기</a></th>
+          <th scope="col"><a  href="/home/testWeather/인천광역시">인천</a></th>
+          <th scope="col"><a  href="/home/testWeather/부산광역시">부산</a></th>
+          <th scope="col"><a  href="/home/testWeather/대구광역시">대구</a></th>
+          <th scope="col"><a  href="/home/testWeather/광주광역시">광주</a></th>
+          <th scope="col"><a  href="/home/testWeather/대전광역시">대전</a></th>
+          <th scope="col"><a  href="/home/testWeather/울산광역시">울산</a></th>
+          <th scope="col"><a  href="/home/testWeather/강원도">강원</a></th>
+          <th scope="col"><a  href="/home/testWeather/충청북도">충북</a></th>
+          <th scope="col"><a  href="/home/testWeather/충청남도">충남</a></th>
+          <th scope="col"><a  href="/home/testWeather/전라북도">전북</a></th>
+          <th scope="col"><a  href="/home/testWeather/전라남도">전남</a></th>
+          <th scope="col"><a  href="/home/testWeather/경상북도">경북</a></th>
+          <th scope="col"><a  href="/home/testWeather/경상남도">경남</a></th>
+          <th scope="col"><a  href="/home/testWeather/제주특별자치도">제주</a></th>
+          <th scope="col"><a  href="/home/testWeather/세종특별자치시">세종</a></th>
+          
+          <!--<th scope="col"><a style="padding-bottom: 0px;" href="/home/todayWeather/22">서귀포</a></th>-->
+          <!--<th scope="col"><a  href="/home/todayWeather/23">제주</a></th>-->
+        </tr>
+      </tbody>
+    </table>
+ </div>
+ <div class="table-responsive" style="height: 78px;">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th scope="col">  </th>
+          <% @city2.each do |c| %>
+            <th scope="col"><a href="/home/testWeather/<%= c.city1 %>/<%= Region.find_by(city2: c.city2).etc %>"><%= c.city2 %></a></th>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+ </div>
+<header>날씨날씨 - <%= @region.city1 %> <%= @region.city2 %></header>
+<div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">시간</th>
+              <td>오전 3</td>
+              <td>오전 6</td>
+              <td>오전 9</td>
+              <td>오후 12</td>
+              <td>오후 3</td>
+              <td>오후 6</td>
+              <td>오후 9</td>
+              <td>오후 12</td>
+              <td>내일 오전 3</td>
+              <td>오전 6</td>
+              <td>오전 9</td>
+              <td>오후 12</td>
+              <td>오후 3</td>
+              <td>오후 6</td>
+              <td>오후 9</td>
+              <td>오후 12</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">온도</th>
+          <% @openWeather.temp.each do |t| %>
+              <td><%= t %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <th scope="row">날씨</th>
+          <% @openWeather.weather.each do |w| %>
+              <td>
+                <% if w == "Clear" %>
+                  <%= image_tag("맑음.png", alt: "맑음") %>
+                <% end %>
+                <% if w == "구름 조금" %>
+                  <%= image_tag("구름 조금.png", alt: "구름 조금") %>
+                <% end %>
+                <% if w == "Clouds" %>
+                  <%= image_tag("구름 조금.png", alt: "구름") %>
+                <% end %>
+                <% if w == "구름 많음" %>
+                  <%= image_tag("구름 많음.png", alt: "구름 많음") %>
+                <% end %>
+                <% if w == "Rain" %>
+                  <%= image_tag("비.png", alt: "비") %>
+                <% end %>
+                <% if w == "Snow" %>
+                  <%= image_tag("눈1.png", alt: "눈") %>
+                <% end %>
+                <% if w == "흐림" %>
+                  <%= image_tag("흐림.png", alt: "흐림") %>
+                <% end %>
+                <% if w == "Clear" %>
+                   <p>맑음</p>
+                <% end %>
+                <% if w == "Clouds" %>
+                  <p>구름</p>
+                <% end %>
+                <% if w == "Rain" %>
+                  <p>비</p>
+                <% end %>
+                <% if w == "Snow" %>
+                  <p>눈</p>
+                <% end %>
+              </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+ </div>
+<div class="alert alert-secondary" role="alert"><%= @mise.mise_info %></div>
+<div class="alert alert-info" role="alert"><%= @mise.ozone_info %></div>
+<footer> ⓒ날씨날씨 / 자료출처-기상청,  Openweather, 에어코리아</footer>
+
+<style>
+  header{
+    padding-top: 4px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  footer{ position:fixed; 
+  left:0px; 
+  bottom:0px; 
+  height:15px; 
+  width:100%; 
+  background: #f2c8a5; 
+  color: white; 
+  text-align: center;
+  font-size: 8px;
+  }
+  p{
+      text-align: center;
+  }
+</style>

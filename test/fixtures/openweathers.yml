@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  region_id: 1
+  temp: 1.5
+  weather: MyString
+  description: MyString
+  icon: MyString
+  dt_txt: 2018-07-05 14:17:17
+
+two:
+  region_id: 1
+  temp: 1.5
+  weather: MyString
+  description: MyString
+  icon: MyString
+  dt_txt: 2018-07-05 14:17:17
