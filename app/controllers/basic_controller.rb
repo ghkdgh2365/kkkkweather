@@ -474,6 +474,7 @@ class BasicController < ApplicationController
               @user.etc = 75
             else
             end
+            @user.region_id = @user.etc
             @user.save
             
             @msg = {
@@ -648,6 +649,7 @@ class BasicController < ApplicationController
               @user.etc = 149
             else
             end
+            @user.region_id = @user.etc
             @user.save
             
             @msg = {
@@ -671,7 +673,6 @@ class BasicController < ApplicationController
             else
               @user = User.where(user_key: @user_key).last
             end
-            @user.region = @response
             case @response
             when "충청남도 천안시동남구"
               @user.etc = 150
@@ -781,6 +782,7 @@ class BasicController < ApplicationController
               @user.etc = 202
             else
             end
+            @user.region_id = @user.etc
             @user.save
             
             @msg = {
@@ -803,7 +805,6 @@ class BasicController < ApplicationController
             else
               @user = User.where(user_key: @user_key).last
             end
-            @user.region = @response
             case @response
             when "경상북도 포항시남구"
               @user.etc = 203
@@ -903,6 +904,7 @@ class BasicController < ApplicationController
               @user.etc = 250
             else
             end
+            @user.region_id = @user.etc
             @user.save
             
             @msg = {
