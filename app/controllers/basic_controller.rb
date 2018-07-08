@@ -50,13 +50,12 @@ class BasicController < ApplicationController
         
         if @response == "오늘 날씨 보기"
           if User.where(user_key: @user_key).exists?
-            @user = User.where(user_key: @user_key).last
             @msg = {
               message: {
-                  text: "안녕하세요-! 날씨날씨입니당 :) 오늘 #{Region.find_by(etc: @user.etc).city1 Region.find_by(etc: @user.etc).city2} 최저 기온은 #{Openweather.where(region_id: @user.etc).last.temp.sort.first},           최고 기온은 #{Openweather.where(region_id: @user.etc).last.temp.sort.last}입니당       #{@rain_news}" ,
+                  text: "안녕하세요-! 날씨날씨입니당 :) 오늘        #{@rain_news}" ,
                   message_button: {
                     label: "자세한 날씨 보기",
-                    url: "https://koreaweather.herokuapp.com/home/testWeather/#{Region.find_by(etc: @user.etc).city1}/#{@user.etc}"
+                    url: "https://koreaweather.herokuapp.com/home/testWeather/"
                   }
               },
               keyboard: {
