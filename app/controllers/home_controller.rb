@@ -143,8 +143,7 @@ class HomeController < ApplicationController
   end
   
   def todayWeather
-    @city1 = params[:city1]
-    @city = Region.where(city1: @city1)
+    redirect_to '/home/testWeather/서울특별시/1'
   end
   
   def testWeather
