@@ -323,6 +323,7 @@
             @weather = []
             @description = []
             @icon = []
+            @dt_txt = []
             url = "https://api.openweathermap.org/data/2.5/forecast?lat=#{r.lat}&lon=#{r.lon}&appid=6124cc33a2dbf357eadefaf4ee0e428c"
             uri = URI(url)
             response = Net::HTTP.get(uri)
@@ -337,6 +338,7 @@
               @weather << d["weather"][0]["main"]
               @description << d["weather"][0]["description"]
               @icon << d["weather"][0]["icon"]
+              @dt_txt << d["dt_txt"]
               @a += 1
               break if @a == 16
             end
@@ -347,6 +349,7 @@
             @open.weather = @weather
             @open.description = @description
             @open.icon = @icon
+            @open.dt_txt = @dt_txt
             @open.save
           end
           
