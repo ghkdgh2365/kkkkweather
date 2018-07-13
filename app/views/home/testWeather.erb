@@ -73,43 +73,14 @@
         </tr>
         <tr>
           <th scope="row">날씨</th>
-          <% @openWeather.weather.each do |w| %>
+            <% x = 0 %>
+            <% @openWeather.icon.each do |i| %>
               <td>
-                <% if w == "Clear" %>
-                  <%= image_tag("맑음.png", alt: "맑음") %>
-                <% end %>
-                <% if w == "구름 조금" %>
-                  <%= image_tag("구름 조금.png", alt: "구름 조금") %>
-                <% end %>
-                <% if w == "Clouds" %>
-                  <%= image_tag("구름 많음.png", alt: "구름") %>
-                <% end %>
-                <% if w == "구름 많음" %>
-                  <%= image_tag("구름 많음.png", alt: "구름 많음") %>
-                <% end %>
-                <% if w == "Rain" %>
-                  <%= image_tag("비.png", alt: "비") %>
-                <% end %>
-                <% if w == "Snow" %>
-                  <%= image_tag("눈1.png", alt: "눈") %>
-                <% end %>
-                <% if w == "흐림" %>
-                  <%= image_tag("흐림.png", alt: "흐림") %>
-                <% end %>
-                <% if w == "Clear" %>
-                   <p>맑음</p>
-                <% end %>
-                <% if w == "Clouds" %>
-                  <p>구름</p>
-                <% end %>
-                <% if w == "Rain" %>
-                  <p>비</p>
-                <% end %>
-                <% if w == "Snow" %>
-                  <p>눈</p>
-                <% end %>
+                <%= image_tag("http://openweathermap.org/img/w/#{i}.png", alt: "비") %>
+                <p><%= @openWeather.description[x] %></p>
               </td>
-          <% end %>
+              <% x += 1 %>
+            <% end %>
         </tr>
       </tbody>
     </table>
