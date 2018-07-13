@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_06_072531) do
+ActiveRecord::Schema.define(version: 2018_07_13_032422) do
 
   create_table "mises", force: :cascade do |t|
     t.text "mise_info"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_07_06_072531) do
     t.string "weather"
     t.string "description"
     t.string "icon"
-    t.datetime "dt_txt"
+    t.string "dt_txt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
