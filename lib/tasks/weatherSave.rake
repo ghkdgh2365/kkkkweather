@@ -324,7 +324,7 @@
             @description = []
             @icon = []
             @dt_txt = []
-            url = "https://api.openweathermap.org/data/2.5/forecast?lat=#{r.lat}&lon=#{r.lon}&appid=6124cc33a2dbf357eadefaf4ee0e428c"
+            url = "https://api.openweathermap.org/data/2.5/forecast?lat=#{r.lat}&lon=#{r.lon}&lang=kr&appid=6124cc33a2dbf357eadefaf4ee0e428c"
             uri = URI(url)
             response = Net::HTTP.get(uri)
             @json = JSON.parse(response)
