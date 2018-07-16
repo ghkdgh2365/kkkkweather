@@ -41,7 +41,7 @@ class BasicController < ApplicationController
         # user 있으면 user 정보 받아오고 비 소식도 같이 받아옴
         if User.where(user_key: @user_key).exists?
           @user = User.where(user_key: @user_key).last
-          Openweather.where(region_id: @user.etc).last.weather.each do |x|
+          Openweather.where(region_id: @user.etc).last.weather[0..6].each do |x|
               if x == "Rain"
                   @rain_news = "(비)비 소식이 있어요 :)"
               end
