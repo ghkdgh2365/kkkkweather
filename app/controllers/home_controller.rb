@@ -155,4 +155,7 @@ class HomeController < ApplicationController
     @region = Region.find_by(etc: @region_id)
 
   end
+  
+  def test
+  end
 end

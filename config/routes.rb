@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get 'home/todayWeather/:city1' => 'home#todayWeather'
   get 'home/testWeather/:city1/:region_id' => 'home#testWeather'
   get 'home/testWeather/:city1' => 'home#testWeather'
+  get 'home/test'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
