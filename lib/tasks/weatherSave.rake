@@ -340,7 +340,7 @@
               @icon << d["weather"][0]["icon"]
               @dt_txt << d["dt_txt"]
               @a += 1
-              break if @a == 16
+              break if @a == 14
             end
             
             @open = Openweather.new
