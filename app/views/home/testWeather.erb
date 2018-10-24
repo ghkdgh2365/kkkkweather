@@ -27,18 +27,22 @@
       </tbody>
     </table>
  </div>
- <div class="table-responsive" style="height: 78px;">
-    <table class="table">
-      <tbody>
-        <tr>
-          <th scope="col">  </th>
-          <% @city2.each do |c| %>
-            <th scope="col"><a href="/home/testWeather/<%= c.city1 %>/<%= Region.find_by(city2: c.city2).etc %>"><%= c.city2 %></a></th>
-          <% end %>
-        </tr>
-      </tbody>
-    </table>
- </div>
+ <% if @city1 == "경기도" %>
+   <div class="table-responsive" style="height: 180px;">
+ <% else %>
+   <div class="table-responsive" style="height: 78px;">
+ <% end %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="col">  </th>
+            <% @city2.each do |c| %>
+              <th scope="col"><a href="/home/testWeather/<%= c.city1 %>/<%= Region.where(city2: c.city2, city1: c.city1).find_by(city2: c.city2).etc %>"><%= c.city2 %></a></th>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+   </div>
 <% if @region != nil %>
 <header>날씨날씨 - <%= @region.city1 %> <%= @region.city2 %></header>
 <div class="table-responsive">
