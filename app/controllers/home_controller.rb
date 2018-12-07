@@ -155,7 +155,14 @@ class HomeController < ApplicationController
     @region = Region.find_by(etc: @region_id)
 
   end
-  
+  def tomorrowWeather
+    @region_id = params[:region_id]
+    @city1 = params[:city1]
+    @city2 = Region.where(city1: @city1)
+    @openWeather = Openweather.where(region_id: @region_id).last
+    @mise = Mise.last
+    @region = Region.find_by(etc: @region_id)
+  end
   def test
   end
 end
