@@ -4,7 +4,7 @@ class BasicController < ApplicationController
         @msg =
             {
               type: "buttons",
-              buttons: ["오늘 날씨 보기", "지역 등록 하기"] # ,"알림 시간 등록"
+              buttons: ["오늘 날씨 보기", "지역 등록 하기", "내일 날씨 보기"] # ,"알림 시간 등록"
             }
         render json: @msg, status: :ok
     end
@@ -46,13 +46,18 @@ class BasicController < ApplicationController
                   @rain_news = "(비)비 소식이 있어요 :)"
               end
           end
+          Openweather.where(region_id: @user.etc).last.weather[8..15].each do |x|
+              if x == "Rain"
+                  @tomorrow_rain_news = "(비)비 소식이 있어요 :)"
+              end
+          end
         end
         
         if @response == "오늘 날씨 보기"
           if User.where(user_key: @user_key).exists?
             @msg = {
               message: {
-                  text: "안녕하세요-! 날씨날씨입니당 :) 오늘 #{Region.find_by(etc: @user.etc).city1} #{Region.find_by(etc: @user.etc).city2} 최저 기온은 #{Openweather.where(region_id: @user.etc).last.temp.sort.first}도, 최고 기온은 #{Openweather.where(region_id: @user.etc).last.temp.sort.last}도입니당 #{@rain_news}" ,
+                  text: "안녕하세요-! 날씨날씨입니당 :) 오늘 #{Region.find_by(etc: @user.etc).city1} #{Region.find_by(etc: @user.etc).city2} 최저 기온은 #{Openweather.where(region_id: @user.etc).last.temp[0..7].sort.first}도, 최고 기온은 #{Openweather.where(region_id: @user.etc).last.temp[0..7].sort.last}도입니당 #{@rain_news}" ,
                   message_button: {
                     label: "자세한 오늘, 내일 날씨",
                     url: "https://koreaweather.herokuapp.com/home/testWeather/#{Region.find_by(etc: @user.etc).city1}/#{@user.etc}"
@@ -60,7 +65,7 @@ class BasicController < ApplicationController
               },
               keyboard: {
                 type: "buttons",
-                buttons: ["오늘 날씨 보기", "지역 다시 등록"] # ,"알림 시간 등록"
+                buttons: ["오늘 날씨 보기", "지역 다시 등록", "내일 날씨 보기"] # ,"알림 시간 등록"
               }
             }
           else
@@ -924,11 +929,42 @@ class BasicController < ApplicationController
               },
               keyboard: {
                 type: "buttons",
-                buttons: ["오늘 날씨 보기", "지역 다시 등록"]# ,"알림 시간 등록"
+                buttons: ["오늘 날씨 보기", "지역 다시 등록", "내일 날씨 보기"]# ,"알림 시간 등록"
               }
             }
             render json: @msg, status: :ok
         end
+        
+        if @response == "내일 날씨 보기"
+          if User.where(user_key: @user_key).exists?
+            @msg = {
+              message: {
+                  text: "안녕하세요-! 날씨날씨입니당 :) 내일 #{Region.find_by(etc: @user.etc).city1} #{Region.find_by(etc: @user.etc).city2} 최저 기온은 #{Openweather.where(region_id: @user.etc).last.temp[8..15].sort.first}도, 최고 기온은 #{Openweather.where(region_id: @user.etc).last.temp[8..15].sort.last}도입니당 #{@tomorrow_rain_news}" ,
+                  message_button: {
+                    label: "자세한 오늘, 내일 날씨",
+                    url: "https://koreaweather.herokuapp.com/home/testWeather/#{Region.find_by(etc: @user.etc).city1}/#{@user.etc}"
+                  }
+              },
+              keyboard: {
+                type: "buttons",
+                buttons: ["오늘 날씨 보기", "지역 다시 등록", "내일 날씨 보기"] # ,"알림 시간 등록"
+              }
+            }
+          else
+            @msg = {
+              message: {
+                  text: "안녕하세요-! 날씨날씨입니당 :) 지역을 등록해주세요-!"
+              },
+              keyboard: {
+                type: "buttons",
+                buttons: ["지역 등록 하기"]
+              }
+            }
+          end
+          
+          render json: @msg, status: :ok
+        end
+        
         # if @response == "다른 지역 날씨"
         #     @msg = {
         #       message: {

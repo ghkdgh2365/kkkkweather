@@ -64,13 +64,13 @@
       <tbody>
         <tr>
           <th scope="row">온도</th>
-          <% for i in 9..16 %>
+          <% for i in 8..15 %>
             <td><%= @openWeather.temp[i] %>도</td>
           <% end %>
         </tr>
         <tr>
           <th scope="row">날씨</th>
-            <% for i in 9..16 %>
+            <% for i in 8..15 %>
               <td>
                 <% if @openWeather.description[i] == "실 비" %>
                   <%= image_tag("http://openweathermap.org/img/w/04d.png") %>
