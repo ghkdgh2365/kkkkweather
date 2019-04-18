@@ -29,7 +29,7 @@
  </div>
 
  <% if @city1 == "경기도" %>
-   <div class="table-responsive" style="height: 18px;">
+   <div class="table-responsive" style="height: 138px;">
  <% else %>
    <div class="table-responsive" style="height: 78px;">
  <% end %>
@@ -103,8 +103,8 @@
       </tbody>
     </table>
  </div>
-<div class="alert alert-secondary" role="alert"><%= @mise.mise_info %></div>
-<div class="alert alert-info" role="alert"><% if @mise.ozone_info.nil? %> 오존예보는 매년 4월15일부터 10월15일까지 발표합니다. <% else %> <%= @mise.ozone_info %> <% end %> </div>
+<!--<div class="alert alert-secondary" role="alert"><%= @mise.mise_info %></div>-->
+<!--<div class="alert alert-info" role="alert"><% if @mise.ozone_info.nil? %> 오존예보는 매년 4월15일부터 10월15일까지 발표합니다. <% else %> <%= @mise.ozone_info %> <% end %> </div>-->
 <% end %>
 <footer> ⓒ날씨날씨 / 자료출처-기상청,  Openweather, 에어코리아</footer>
 

@@ -353,18 +353,18 @@
             @open.save
           end
           
-          @mises = [] #미세먼지, 오존 정보 담을 통
-          air = Nokogiri::HTML(open("https://www.airkorea.or.kr/dustForecast")) #에어코리아 크롤링
+          # @mises = [] #미세먼지, 오존 정보 담을 통
+          # air = Nokogiri::HTML(open("https://www.airkorea.or.kr/dustForecast")) #에어코리아 크롤링
           
-          # 미세,오존 정보 뽑기
-          air.css(".inform_overall").each do |x|
-            @mises << x.inner_text
-          end
+          # # 미세,오존 정보 뽑기
+          # air.css(".inform_overall").each do |x|
+          #   @mises << x.inner_text
+          # end
           
-          @mise = Mise.new
-          @mise.mise_info = @mises[0] #미세먼지 오늘꺼
-          @mise.ozone_info = @mises[2] #오존 오늘꺼
-          @mise.save
+          # @mise = Mise.new
+          # @mise.mise_info = @mises[0] #미세먼지 오늘꺼
+          # @mise.ozone_info = @mises[2] #오존 오늘꺼
+          # @mise.save
           
           
         end
