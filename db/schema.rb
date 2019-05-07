@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_13_032422) do
+ActiveRecord::Schema.define(version: 2019_05_07_112749) do
+
+  create_table "boards", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "mises", force: :cascade do |t|
     t.text "mise_info"
@@ -26,6 +32,12 @@ ActiveRecord::Schema.define(version: 2018_07_13_032422) do
     t.string "description"
     t.string "icon"
     t.string "dt_txt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

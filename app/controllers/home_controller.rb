@@ -163,6 +163,9 @@ class HomeController < ApplicationController
     @mise = Mise.last
     @region = Region.find_by(etc: @region_id)
   end
-  def test
+  def welcome
+  end
+  
+  def welcome2
   end
 end
