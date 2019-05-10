@@ -2,17 +2,19 @@
 
 <h1>Posts</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Email</th>
-      <th colspan="3"></th>
+      <th scope="col">No.</th>
+      <th scope="col">Email</th>
+      <th scope="col" colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @posts.each do |post| %>
       <tr>
+        <th scope="row"><%= post.id %></th>
         <td><%= post.email %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
