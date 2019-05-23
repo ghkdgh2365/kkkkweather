@@ -1,29 +1,29 @@
-<!--<p id="notice"><%= notice %></p>-->
+<p id="notice"><%= notice %></p>
 
-<!--<h1>Posts</h1>-->
+<h1>Posts</h1>
 
-<!--<table class="table">-->
-<!--  <thead>-->
-<!--    <tr>-->
-<!--      <th scope="col">No.</th>-->
-<!--      <th scope="col">Email</th>-->
-<!--      <th scope="col" colspan="3"></th>-->
-<!--    </tr>-->
-<!--  </thead>-->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Email</th>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
 
-<!--  <tbody>-->
-<!--    <% @posts.each do |post| %>-->
-<!--      <tr>-->
-<!--        <th scope="row"><%= post.id %></th>-->
-<!--        <td><%= post.email %></td>-->
-<!--        <td><%= link_to 'Show', post %></td>-->
-<!--        <td><%= link_to 'Edit', edit_post_path(post) %></td>-->
-<!--        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-<!--      </tr>-->
-<!--    <% end %>-->
-<!--  </tbody>-->
-<!--</table>-->
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <th scope="row"><%= post.id %></th>
+        <td><%= post.email %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<!--<br>-->
+<br>
 
-<!--<%= link_to 'New Post', new_post_path %>-->
+<%= link_to 'New Post', new_post_path %>
