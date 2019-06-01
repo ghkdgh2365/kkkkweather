@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interviews
   resources :boards
   resources :posts
   root 'home#weather'

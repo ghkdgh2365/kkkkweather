@@ -1,0 +1,122 @@
+<%= form_with(model: interview, local: true) do |form| %>
+  <% if interview.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(interview.errors.count, "error") %> prohibited this interview from being saved:</h2>
+
+      <ul>
+      <% interview.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sex %>
+    <%= form.text_field :sex %>
+  </div>
+
+  <div class="field">
+    <%= form.label :career %>
+    <%= form.text_field :career %>
+  </div>
+
+  <div class="field">
+    <%= form.label :use_service %>
+    <%= form.text_field :use_service %>
+  </div>
+
+  <div class="field">
+    <%= form.label :existing_service_uncomfortable %>
+    <%= form.text_field :existing_service_uncomfortable %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subscribe_channel_number %>
+    <%= form.number_field :subscribe_channel_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :like_category %>
+    <%= form.text_field :like_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :good_point %>
+    <%= form.text_area :good_point %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bad_point %>
+    <%= form.text_area :bad_point %>
+  </div>
+
+  <div class="field">
+    <%= form.label :recommendation %>
+    <%= form.number_field :recommendation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cause %>
+    <%= form.text_area :cause %>
+  </div>
+
+  <div class="field">
+    <%= form.label :screenshot %>
+    <%= form.text_field :screenshot %>
+  </div>
+
+  <div class="field">
+    <%= form.label :favorite_site %>
+    <%= form.text_field :favorite_site %>
+  </div>
+
+  <div class="field">
+    <%= form.label :period %>
+    <%= form.text_field :period %>
+  </div>
+
+  <div class="field">
+    <%= form.label :highlight_video %>
+    <%= form.text_field :highlight_video %>
+  </div>
+
+  <div class="field">
+    <%= form.label :what_highlight_video %>
+    <%= form.text_field :what_highlight_video %>
+  </div>
+
+  <div class="field">
+    <%= form.label :how_long_watch %>
+    <%= form.text_field :how_long_watch %>
+  </div>
+
+  <div class="field">
+    <%= form.label :when_watch %>
+    <%= form.text_field :when_watch %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gift %>
+    <%= form.text_field :gift %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

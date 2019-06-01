@@ -1,0 +1,2 @@
+json.extract! interview, :id, :age, :sex, :career, :use_service, :existing_service_uncomfortable, :subscribe_channel_number, :like_category, :good_point, :bad_point, :recommendation, :cause, :screenshot, :favorite_site, :period, :highlight_video, :what_highlight_video, :how_long_watch, :when_watch, :email, :phone_number, :gift, :created_at, :updated_at
+json.url interview_url(interview, format: :json)

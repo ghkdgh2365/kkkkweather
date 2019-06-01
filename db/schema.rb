@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_112749) do
+ActiveRecord::Schema.define(version: 2019_06_01_090902) do
 
   create_table "boards", force: :cascade do |t|
     t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "interviews", force: :cascade do |t|
+    t.integer "age"
+    t.string "sex"
+    t.string "career"
+    t.string "use_service"
+    t.string "existing_service_uncomfortable"
+    t.integer "subscribe_channel_number"
+    t.string "like_category"
+    t.text "good_point"
+    t.text "bad_point"
+    t.integer "recommendation"
+    t.text "cause"
+    t.string "screenshot"
+    t.string "favorite_site"
+    t.string "period"
+    t.string "highlight_video"
+    t.string "what_highlight_video"
+    t.string "how_long_watch"
+    t.string "when_watch"
+    t.string "email"
+    t.string "phone_number"
+    t.string "gift"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +76,32 @@ ActiveRecord::Schema.define(version: 2019_05_07_112749) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "etc"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.integer "age"
+    t.string "sex"
+    t.string "career"
+    t.string "use_service"
+    t.string "existing_service_uncomfortable"
+    t.integer "subscribe_channel_number"
+    t.string "like_category"
+    t.text "good_point"
+    t.text "bad_point"
+    t.integer "recommendation"
+    t.text "cause"
+    t.string "screenshot"
+    t.string "favorite_site"
+    t.string "period"
+    t.string "highlight_video"
+    t.string "what_highlight_video"
+    t.string "how_long_watch"
+    t.string "when_watch"
+    t.string "email"
+    t.string "phone_number"
+    t.string "gift"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

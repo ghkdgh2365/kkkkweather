@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  age: 1
+  sex: MyString
+  career: MyString
+  use_service: MyString
+  existing_service_uncomfortable: MyString
+  subscribe_channel_number: 1
+  like_category: MyString
+  good_point: MyText
+  bad_point: MyText
+  recommendation: 1
+  cause: MyText
+  screenshot: MyString
+  favorite_site: MyString
+  period: MyString
+  highlight_video: MyString
+  what_highlight_video: MyString
+  how_long_watch: MyString
+  when_watch: MyString
+  email: MyString
+  phone_number: MyString
+  gift: MyString
+
+two:
+  age: 1
+  sex: MyString
+  career: MyString
+  use_service: MyString
+  existing_service_uncomfortable: MyString
+  subscribe_channel_number: 1
+  like_category: MyString
+  good_point: MyText
+  bad_point: MyText
+  recommendation: 1
+  cause: MyText
+  screenshot: MyString
+  favorite_site: MyString
+  period: MyString
+  highlight_video: MyString
+  what_highlight_video: MyString
+  how_long_watch: MyString
+  when_watch: MyString
+  email: MyString
+  phone_number: MyString
+  gift: MyString
