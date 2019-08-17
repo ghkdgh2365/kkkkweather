@@ -1,27 +1,27 @@
 class CreateInterviews < ActiveRecord::Migration[5.2]
   def change
     create_table :interviews do |t|
-      t.integer :age
-      t.string :sex
-      t.string :career
-      t.string :use_service
-      t.string :existing_service_uncomfortable
-      t.integer :subscribe_channel_number
-      t.string :like_category
-      t.text :good_point
-      t.text :bad_point
-      t.integer :recommendation
-      t.text :cause
-      t.string :screenshot
-      t.string :favorite_site
-      t.string :period
-      t.string :highlight_video
-      t.string :what_highlight_video
-      t.string :how_long_watch
-      t.string :when_watch
-      t.string :email
-      t.string :phone_number
-      t.string :gift
+      t.integer :age,      null: false
+      t.string :sex,      null: false
+      t.string :career,      null: false
+      t.string :use_service,      null: false
+      t.string :existing_service_uncomfortable,      null: false
+      t.integer :subscribe_channel_number,      null: false
+      t.string :like_category,      null: false
+      t.text :good_point,      null: false
+      t.text :bad_point,      null: false
+      t.integer :recommendation,      null: false
+      t.text :cause,      null: false
+      t.string :screenshot,      null: false
+      t.string :favorite_site,      null: false
+      t.string :period,      null: false
+      t.string :highlight_video,      null: false
+      t.string :what_highlight_video,      null: false
+      t.string :how_long_watch,      null: false
+      t.string :when_watch,      null: false
+      t.string :email,      null: false
+      t.string :phone_number,      null: false
+      t.string :gift,      null: false
 
       t.timestamps
     end
