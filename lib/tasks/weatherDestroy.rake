@@ -13,8 +13,8 @@ end
 namespace :weather do
   desc "weather data save"
   task :wakeUp => :environment do
-    require 'net/http'
-    uri = URI("https://koreaweather.herokuapp.com")
-    Net::HTTP.get(uri)
+    # require 'net/http'
+    # uri = URI("https://koreaweather.herokuapp.com")
+    # Net::HTTP.get(uri)
   end
 end
