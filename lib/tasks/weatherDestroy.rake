@@ -5,7 +5,7 @@ namespace :data do
     last = Openweather.last.id
     amount = last - first
     if amount >= 1000
-        Openweahter.where(id: first..last-500).delete_all
+        Openweather.where(id: first..last-500).delete_all
     end
   end
 end
